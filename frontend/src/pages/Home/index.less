@@ -1,0 +1,105 @@
+.mapBoxFrame {
+    width: 100%;
+    height: calc(100vh - 152px + 56px);
+    border: none;
+    margin-top: -56px;
+}
+
+.modalCenterFooter :global(.ant-modal-footer) {
+    text-align: center;
+}
+.houseImg {
+    box-sizing: border-box;
+    padding: 16px 16px 0;
+}
+.selectedCard {
+    border: 1px solid @colorPrimary;
+    box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+        0 9px 28px 8px rgba(56, 163, 165, 0.05);
+    transition: none;
+    background-color: @colorBg;
+    &:hover {
+        border: 1px solid @colorPrimary;
+        box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+            0 9px 28px 8px rgba(56, 163, 165, 0.05);
+    }
+}
+.mapContainer {
+    width: 100%;
+    height: calc(100vh - 160px) !important;
+    background: @colorPageBg;
+}
+
+.popupCountryName {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.popupCountryDesc {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: @colorGreyLabel;
+}
+.popupCountryClick {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: @colorPrimary;
+}
+.popupWrapper {
+    &.unavailable {
+        width: calc(200px - 24px);
+    }
+    &.available {
+        width: calc(240px - 24px);
+    }
+}
+.legendCard {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 200px;
+    :global(.ant-card-body) {
+        padding: 4px 8px;
+    }
+    .legend {
+        display: inline-block;
+        width: 20%;
+        min-height: 1rem;
+    }
+    .legendMeaning {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.infoIcon {
+    padding: 2px;
+    color: @colorGreyLabel;
+    font-size: 0.8rem;
+}
+.drawerButtonWrapper {
+    margin-top: 24px;
+    text-align: center;
+}
+
+// customize popup style of mapbox
+:global(.mapboxgl-ctrl-bottom-left) {
+    display: none;
+}
+:global(.mapboxgl-popup-tip) {
+    display: none;
+}
+:global(.mapboxgl-popup) {
+    width: 240px;
+}
+:global(.mapboxgl-popup-content) {
+    border-radius: 8px;
+    padding: 12px;
+}
+// change drawer z-index to avoid covering global header
+:global(.ant-drawer) {
+    z-index: 999 !important;
+}
+:global(.ant-drawer-content-wrapper) {
+    z-index: 999 !important;
+}

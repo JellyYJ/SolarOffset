@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.detailCard {
+    :global(.ant-card-head-title) {
+        // font-size: 1.2rem;
+        // text-align: center;
+    }
+    .cardTitle {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+.title {
+    margin: 4px 0 12px;
+    font-size: 1.2rem;
+    color: @colorPrimary;
+    text-align: center;
+}
+.h2Title {
+    margin-bottom: 8px;
+}
+.total {
+    margin: 0 0 16px;
+}
+.solarPanelImg {
+    width: 100px;
+    height: 100px;
+}
+.infoIcon {
+    color: @colorGreyLabel;
+    font-size: 14px;
+    margin-top: 6px;
+}
+.detailPageInfoIcon {
+    color: @colorGreyLabel;
+    font-size: 14px;
+    margin-left: 2px;
+}
+.faceIcon {
+    font-size: 1.25rem;
+    margin-right: 4px;
+    position: relative;
+    top: 2px;
+}
+
+.map img {
+    width: 0.2rem;
+    height: auto;
+    border-radius: 0.5rem;
+}
+.infoContent {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.customAmount {
+    width: 100px;
+    margin-left: 8px;
+}
+.detailDescription {
+    :global(.ant-descriptions-item-container) {
+        // align-items: center;
+        // top: 2px;
+        // position: relative;
+    }
+    :global(.ant-descriptions-item-label) {
+        // font-size: 1rem;
+        margin-top: 2px;
+    }
+    :global(.ant-descriptions-item-content) {
+        font-size: 1rem;
+    }
+}
+.detailImg {
+    width: 100%;
+    border-radius: 8px;
+}
+.donateButtonWrapper {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.details {
+    // margin-top: 1rem;
+    // font-size: 1.4rem;
+    // color: black;
+    //text-align: left;
+}
+.solarPanelFundTitle {
+    margin-bottom: 16px !important;
+}
+
+.selectedCard {
+    border: 1px solid @colorPrimary;
+    box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+        0 9px 28px 8px rgba(56, 163, 165, 0.05);
+    transition: none;
+    // background-color: @colorBg;
+    &:hover {
+        border: 1px solid @colorPrimary;
+        box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+            0 9px 28px 8px rgba(56, 163, 165, 0.05);
+    }
+}
+
+.mention {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 20px;
+    text-align: left;
+}
+
+.mention h2 {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.mention p {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+}

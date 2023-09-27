@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set root font size to 10/16 = 62.5% */
+// html {
+//     font-size: 62.5%;
+// }
+
+.title {
+    color: @colorPrimary;
+    font-size: 1.2rem;
+}
+
+.wrapper {
+    // background-color: #fff;
+    // padding: 24px;
+    margin: 0 auto;
+}
+
+.alert {
+    border-color: @colorLightGreen;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; // allow items to wrap onto a new line
+    img {
+        margin-right: 12px;
+        // max-width: 2.8rem;
+        max-width: 32px;
+    }
+}
+.rect {
+    display: inline-block;
+    max-width: 8rem;
+    // max-height: 3rem;
+    border-radius: 10%;
+    // background: @colorBg;
+    // margin-left: 1rem;
+    // margin-top: 1rem; // add some margin to separate from the previous element
+}
+.carbon_text {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-align: center;
+    padding-left: 8px;
+    color: @colorNavy;
+}
+
+.fund_text {
+    color: @colorPrimary;
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* BUTTONS */
+.tabs {
+    margin-top: 8px;
+}
+
+.compare_btn {
+    margin-left: auto;
+    display: flex;
+}
+
+/* COUNTRIES */
+.countries {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, (minmax(15rem, 1fr)));
+    grid-gap: 1em;
+}
+
+.country_card {
+    // padding: 1rem;
+    margin-top: 1rem;
+
+    .ant-card-meta-description {
+        color: #000000e0;
+        label {
+            color: @colorGreyLabel;
+        }
+    }
+    cursor: auto;
+    :global(&.ant-card-bordered .ant-card-cover) {
+        margin-top: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+}
+.selectedCard {
+    border: 1.5px solid @colorPrimary;
+    box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+        0 9px 28px 8px rgba(56, 163, 165, 0.12);
+    transition: none;
+    // background-color: @colorBg;
+    &:hover {
+        border: 1.5px solid @colorPrimary;
+        box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+            0 9px 28px 8px rgba(56, 163, 165, 0.12);
+    }
+}
+
+.country_card_title {
+    font-size: 1.2rem;
+}
+
+// increase the amx-height if the screen is wider than 768px
+@media (min-width: 768px) {
+    // .countries {
+    //     max-height: 70vh; /* increase the max height for screens wider than 768px */
+    // }
+}
+
+/* check box */
+.checkbox {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+}
+
+/*SPIN*/
+.spin-container {
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sunIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 4px;
+    fill: @colorGrey5;
+    &.active {
+        fill: @colorWarning;
+    }
+}
+.mapIcon {
+    cursor: pointer;
+    height: 1.6rem;
+    width: 1.6rem;
+    padding: 6px 0 2px 4px;
+    fill: @colorPrimary;
+    &:hover {
+        fill: @colorPrimaryHover;
+    }
+}
+.cardDescriptionLine {
+    // display: flex;
+    // align-items: center;
+    line-height: 1.8rem;
+    height: 1.8rem;
+    align-items: center;
+}
+
+.infoIcon {
+    padding: 2px;
+    color: @colorGreyLabel;
+    font-size: 0.8rem;
+}
+.faceIcon {
+    font-size: 1.25rem;
+    margin-right: 4px;
+    position: relative;
+    top: 2px;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    background-color: white;
+}
+.popupCountryName {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.popupCountryDesc {
+    font-size: 0.875rem;
+    color: @colorGreyLabel;
+}
+.popupWrapper {
+    &.unavailable {
+        width: calc(200px - 24px);
+    }
+    &.available {
+        width: calc(240px - 24px);
+    }
+}
+.detailButtonWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+.legendCard {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 200px;
+    :global(.ant-card-body) {
+        padding: 4px 8px;
+    }
+    .legend {
+        display: inline-block;
+        width: 25%;
+        min-height: 1rem;
+    }
+    .legendMeaning {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+// customize popup style of mapbox
+:global(.mapboxgl-ctrl-bottom-left) {
+    display: none;
+}
+:global(.mapboxgl-popup-tip) {
+    display: none;
+}
+:global(.mapboxgl-popup) {
+    // max-width: 320px;
+}
+:global(.mapboxgl-popup-content) {
+    border-radius: 8px;
+    padding: 12px;
+}
+
+// change drawer z-index to avoid covering global header
+:global(.ant-drawer) {
+    z-index: 999 !important;
+}
+:global(.ant-drawer-content-wrapper) {
+    z-index: 999 !important;
+}

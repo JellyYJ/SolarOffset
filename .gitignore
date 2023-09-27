@@ -1,0 +1,25 @@
+# Windows
+\backend\node_modules
+\frontend\node_modules
+\frontend\package-lock.json
+\backend\package-lock.json
+**/logs/
+**\logs\
+
+# MacOS
+**/node_modules
+**/package-lock.json
+frontend/.env.local
+frontend/.umirc.local.ts
+frontend/config/config.local.ts
+**/dist
+**/src/.umi
+**/src/.umi-production
+**/src/.umi-test
+/backend/logs
+**/.vscode
+**/.idea
+**/.DS_Store
+*.log
+
+backend/.nyc_output/

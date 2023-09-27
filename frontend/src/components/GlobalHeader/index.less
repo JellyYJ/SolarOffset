@@ -1,0 +1,82 @@
+.headerWrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 0.5rem 0.5rem 1px rgba(0, 0, 0, 0.06);
+}
+.sloganBar {
+    background-color: @colorPrimary;
+    height: 40px;
+    line-height: 40px;
+    .username {
+        font-style: normal;
+        font-weight: bold;
+        display: inline-block;
+        margin-left: 12px;
+        font-size: 0.8rem;
+    }
+    .centerText {
+        color: #ffffff;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1rem;
+    }
+    .rightLogin {
+        float: right;
+        margin-right: 24px;
+    }
+    .signupButton {
+        border-color: #ffffff;
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+.headerContainer {
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    background: @colorBg;
+    background-image: url("@/assets/header_bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    // border-bottom: 1px solid #ffffff;
+    padding: 8px;
+    .title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: @colorNavy;
+        padding-bottom: 4px;
+        cursor: pointer;
+    }
+    .description {
+        // font-style: italic;
+        font-size: 14px;
+        color: @colorPrimary;
+    }
+    .navs {
+        display: inline-block;
+        ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+        li {
+            margin-right: 1em;
+        }
+    }
+    .navMenu {
+        background-color: transparent;
+        // background-color: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid @colorBg;
+        // border-bottom: none;
+        font-size: 1rem;
+    }
+}

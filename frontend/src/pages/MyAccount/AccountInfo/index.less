@@ -1,0 +1,23 @@
+.title {
+    color: @colorPrimary;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, (minmax(10rem, 1fr)));
+    grid-gap: 1rem;
+}
+
+.infoContainer {
+    flex: 1 1 auto;
+    grid-column: 1 / span 3;
+}
+
+.picContainer {
+    flex: 0 0 auto;
+    background-color: white;
+    max-width: 10rem;
+    max-height: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+}

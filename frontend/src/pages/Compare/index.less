@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set root font size to 10px */
+// html {
+//     font-size: 62.5%;
+// }
+
+.title {
+    font-size: 1.5rem;
+    color: @colorPrimary;
+}
+
+.wrapper {
+    // background-color: #fff;
+    margin: 0 auto;
+}
+
+.countrySelector {
+    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, (minmax(25rem, 1fr)));
+    grid-gap: 24px;
+    text-align: center;
+}
+.compare {
+    // padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, (minmax(15rem, 1fr)));
+    grid-gap: 24px;
+    text-align: center;
+}
+
+.card {
+    // padding: 12px 12px 0;
+    box-shadow: 0 6px 16px 0 rgba(56, 163, 165, 0.12), 0 3px 6px -4px rgba(56, 163, 165, 0.12),
+        0 9px 28px 8px rgba(56, 163, 165, 0.065);
+
+    .ant-card-head-title {
+        font-size: 1.2rem;
+    }
+
+    // span {
+    //     font-size: 1rem;
+    // }
+    p {
+        font-size: 1.2rem;
+        color: black;
+        margin-bottom: 16px;
+    }
+}
+.card-cover {
+    border-radius: 8px !important;
+    margin-top: 16px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ICONS */
+.icons-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    span:hover {
+        color: @colorPrimary;
+        font-weight: bold;
+    }
+}
+
+.icon {
+    margin-left: 12px;
+    max-width: 1.2rem;
+}
+.infoIcon {
+    margin-left: 2px;
+}
+
+/* Radar */
+.radarChartContainer {
+    // margin: 0 8rem;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* ERROR PAGE */
+.compare-error {
+    color: @colorPrimary;
+    font-size: 1rem;
+    padding-top: 0;
+}
+.compare-error h1 {
+    margin-bottom: 16px;
+}
+.compare-error p {
+    margin-bottom: 16px;
+}
+.compare-empty {
+    margin: 24px;
+}
+
+.donate-desciption {
+    color: @colorPrimary;
+}
+
+.solarElectricityPercent {
+    margin-left: 4px;
+    font-size: 1rem;
+}
