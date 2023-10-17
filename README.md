@@ -29,7 +29,7 @@ It will open a server listening localhost:3000
 
 ```
 cd frontend
-npm install
+npm install --force
 npm start
 ```
 
