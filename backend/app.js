@@ -24,6 +24,20 @@ let countryRouter = require("./routes/country");
 
 let app = express();
 
+// update to match the domain you will make the request from
+app.use(
+  cors({
+    // origin: process.env.FRONT_END_HOST,
+    origin: [
+      "http://localhost:8000", // Local development
+      "https://solaroffset-frontend.netlify.app", // Deployed frontend
+    ],
+    credentials: true,
+    optionSuccessStatus: 200,
+  })
+);
+app.options("*", cors());
+
 //add swagger config
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
@@ -53,19 +67,6 @@ if (process.env.NODE_ENV === "production") {
   // development env
   app.use(express.static(path.join(__dirname, "public")));
 }
-
-// update to match the domain you will make the request from
-app.use(
-  cors({
-    // origin: process.env.FRONT_END_HOST,
-    origin: [
-      "http://localhost:8000", // Local development
-      "https://solaroffset-frontend.netlify.app", // Deployed frontend
-    ],
-    credentials: true,
-    optionSuccessStatus: 200,
-  })
-);
 
 app.use("/", indexRouter);
 app.use("/user", userRoutes);
