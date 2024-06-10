@@ -57,7 +57,11 @@ if (process.env.NODE_ENV === "production") {
 // update to match the domain you will make the request from
 app.use(
   cors({
-    origin: process.env.FRONT_END_HOST,
+    // origin: process.env.FRONT_END_HOST,
+    origin: [
+      "http://localhost:8000", // Local development
+      "https://solaroffset-frontend.netlify.app", // Deployed frontend
+    ],
     credentials: true,
     optionSuccessStatus: 200,
   })
