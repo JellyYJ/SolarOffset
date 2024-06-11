@@ -23,3 +23,5 @@ frontend/config/config.local.ts
 *.log
 
 backend/.nyc_output/
+backend/.env
+backend/.env.prod

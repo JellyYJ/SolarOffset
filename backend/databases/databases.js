@@ -3,22 +3,30 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const logger = require("../utils/logger");
 
+const DB = process.env.DATABASE_HOST.replace(
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD
+);
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("DB connetion successful");
+  });
+
 // mongoose.connect("mongodb://127.0.0.1:27017/solaroffset", {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 //   useCreateIndex: true,
 // });
-const mongodbURI = process.env.MONGODB_URI;
-mongoose.connect(mongodbURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
-const db = mongoose.connection;
 
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", async () => {
-  console.log("Database connected");
   await addDefaultAdmin();
 });
 
