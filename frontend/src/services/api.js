@@ -1,7 +1,22 @@
 import axios from "axios";
 import { server as hostUrl } from "../../config";
+import { getAuthTokenFromCookie } from "./utils";
 
 axios.defaults.withCredentials = true;
+
+// Add a request interceptor
+axios.interceptors.request.use(
+    (config) => {
+        const token = getAuthTokenFromCookie();
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 export async function getCarbonIntensity(options) {
     const region = options.region;

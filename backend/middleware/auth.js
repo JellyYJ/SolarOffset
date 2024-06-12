@@ -30,17 +30,37 @@ const getUserAuth = async (req, res, next, token) => {
   next();
 };
 
-exports.authenticate = async (req, res, next) => {
-  // const authHeader = req.get('Authorization');
-  // if (!authHeader) {
-  //     const error = new Error('Not authenticated.');
-  //     error.statusCode = 401;
-  //     throw error;
-  // }
-  // const token = authHeader.split(' ')[1];
+// exports.authenticate = async (req, res, next) => {
+//   // const authHeader = req.get('Authorization');
+//   // if (!authHeader) {
+//   //     const error = new Error('Not authenticated.');
+//   //     error.statusCode = 401;
+//   //     throw error;
+//   // }
+//   // const token = authHeader.split(' ')[1];
 
-  const cookies = req.cookies;
-  const token = cookies ? cookies.jwt : "";
+//   const cookies = req.cookies;
+//   const token = cookies ? cookies.jwt : "";
+//   if (!token) {
+//     const error = new Error("Token not available.");
+//     error.statusCode = 401;
+//     return res.status(error.statusCode).send(error.message);
+//   } else {
+//     await getUserAuth(req, res, next, token);
+//   }
+// };
+
+exports.authenticate = async (req, res, next) => {
+  let token;
+  const authHeader = req.get("Authorization");
+  if (authHeader) {
+    token = authHeader.split(" ")[1];
+    // console.log("Headers :", token);
+  } else if (req.cookies.jwt) {
+    // console.log("token :", token);
+    token = req.cookies.jwt;
+  }
+
   if (!token) {
     const error = new Error("Token not available.");
     error.statusCode = 401;
