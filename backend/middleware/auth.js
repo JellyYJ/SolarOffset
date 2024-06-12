@@ -41,9 +41,6 @@ exports.authenticate = async (req, res, next) => {
 
   const cookies = req.cookies;
   const token = cookies ? cookies.jwt : "";
-  console.log("cookies: ", cookies);
-  console.log("token: ", token);
-
   if (!token) {
     const error = new Error("Token not available.");
     error.statusCode = 401;
