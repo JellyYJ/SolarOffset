@@ -38,18 +38,6 @@ app.use(
 );
 app.options("*", cors());
 
-app.use(
-  session({
-    cookie: {
-      secure: true,
-      sameSite: "none",
-      httpOnly: true,
-    },
-  })
-);
-
-app.set("trust proxy", 1);
-
 //add swagger config
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
