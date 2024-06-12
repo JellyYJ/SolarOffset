@@ -17,9 +17,7 @@ describe("Payments Controller", function () {
     mongoose
       // .connect(
       //     "mongodb://127.0.0.1:27017/solaroffset-test", {
-      .connect(
-        "mongodb+srv://Yijia:Meb3XX2WnFHRmFmf@cluster0.davspsq.mongodb.net/solarOffset-test",
-        {
+      .connect(DB, {
           useNewUrlParser: true,
           useUnifiedTopology: true,
           useFindAndModify: false,

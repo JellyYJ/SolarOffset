@@ -15,9 +15,7 @@ console.log(DB);
 describe("User Controller", function () {
   before(function (done) {
     mongoose
-      .connect(
-        "mongodb+srv://Yijia:Meb3XX2WnFHRmFmf@cluster0.davspsq.mongodb.net/solarOffset-test",
-        {
+        .connect(DB, {
           useNewUrlParser: true,
           useUnifiedTopology: true,
           useFindAndModify: false,
