@@ -72,8 +72,14 @@ exports.authenticate = async (req, res, next) => {
 
 // middleware allows guests
 exports.allowGuests = async (req, res, next) => {
-  const cookies = req.cookies;
-  const token = cookies ? cookies.jwt : "";
+  let token;
+  const authHeader = req.get("Authorization");
+  if (authHeader) {
+    token = authHeader.split(" ")[1];
+  } else if (req.cookies.jwt) {
+    token = req.cookies.jwt;
+  }
+
   if (!token) {
     next();
   } else {
