@@ -5,19 +5,21 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const userController = require("../controllers/user");
 
+const DB = process.env.DATABASE_HOST_TEST.replace(
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD
+);
+
 // ** We use a dedicated test database.
 describe("User Controller", function () {
   before(function (done) {
     mongoose
-      .connect(
-        "mongodb+srv://Yijia:<PASSWORD>@cluster0.davspsq.mongodb.net/solarOffset-test",
-        {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          useFindAndModify: false,
-          useCreateIndex: true,
-        }
-      )
+      .connect(DB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      })
       .then((result) => {
         // Creating a new user.
         const user = new User({
