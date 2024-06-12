@@ -9,17 +9,21 @@ const DB = process.env.DATABASE_HOST_TEST.replace(
   "<PASSWORD>",
   process.env.DATABASE_PASSWORD
 );
+console.log(DB);
 
 // ** We use a dedicated test database.
 describe("User Controller", function () {
   before(function (done) {
     mongoose
-      .connect(DB, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-      })
+      .connect(
+        "mongodb+srv://Yijia:Meb3XX2WnFHRmFmf@cluster0.davspsq.mongodb.net/solarOffset-test",
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useFindAndModify: false,
+          useCreateIndex: true,
+        }
+      )
       .then((result) => {
         // Creating a new user.
         const user = new User({

@@ -3,20 +3,29 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 const logger = require("../utils/logger");
 
-const DB = process.env.DATABASE_HOST.replace(
-  "<PASSWORD>",
-  process.env.DATABASE_PASSWORD
-);
-mongoose
-  .connect(DB, {
+// const DB = process.env.DATABASE_HOST.replace(
+//   "<PASSWORD>",
+//   process.env.DATABASE_PASSWORD
+// );
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   })
+//   .then(() => {
+//     console.log("DB connetion successful");
+//   });
+
+mongoose.connect(
+  "mongodb+srv://Yijia:Meb3XX2WnFHRmFmf@cluster0.davspsq.mongodb.net/solarOffset",
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.log("DB connetion successful");
-  });
+  }
+);
 
 // mongoose.connect("mongodb://127.0.0.1:27017/solaroffset", {
 //   useNewUrlParser: true,
