@@ -136,7 +136,12 @@ exports.logout = async (req, res, next) => {
     //     }
     // }
     // await user.save();
-    res.clearCookie("jwt");
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "None",
+    });
+    // res.clearCookie("jwt") // Before deployment
     return res.status(200).send("Successfully Logout!");
   } catch (error) {
     console.log(error);

@@ -20,7 +20,12 @@ const getUserAuth = async (req, res, next, token) => {
   if (!user) {
     const error = new Error("User does not exist.");
     error.statusCode = 401;
-    res.clearCookie("jwt");
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "None",
+    });
+    // res.clearCookie("jwt");
     return res.status(error.statusCode).send(error.message);
   }
   req.userId = decodedToken.userId;
